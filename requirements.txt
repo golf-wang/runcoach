@@ -1,0 +1,10 @@
+streamlit
+langchain
+langchain-openai
+chromadb
+unstructured
+openai
+python-magic
+python-magic-bin
+epub_conversion
+beautifulsoup4
