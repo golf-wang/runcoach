@@ -1,9 +1,9 @@
 import streamlit as st
 import pickle
-from langchain.document_loaders import TextLoader  # Changed this line
+from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma  # Changed this line
-from langchain.embeddings import OpenAIEmbeddings  # Changed this line
+from langchain_community.vectorstores import FAISS
+from langchain_openai import OpenAIEmbeddings
 from langchain.chains import ConversationalRetrievalChain
 from langchain_openai import ChatOpenAI
 import os
@@ -57,12 +57,9 @@ with st.sidebar:
                 )
                 splits = text_splitter.split_documents(documents)
                 
-                # Create embeddings
-                embedding = OpenAIEmbeddings()
-                vectorstore = Chroma.from_documents(
-                    documents=splits,
-                    embedding=embedding
-                )
+                # Create embeddings and vectorstore
+                embeddings = OpenAIEmbeddings()
+                vectorstore = FAISS.from_documents(splits, embeddings)
                 
                 # Create the conversational chain
                 st.session_state.coach = ConversationalRetrievalChain.from_llm(
