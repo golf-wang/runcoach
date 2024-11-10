@@ -2,7 +2,4 @@ streamlit
 langchain
 langchain-openai
 chromadb
-unstructured
 openai
-beautifulsoup4
-epub_conversion
