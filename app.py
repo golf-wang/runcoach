@@ -1,9 +1,9 @@
 import streamlit as st
 import pickle
-from langchain_community.document_loaders import TextLoader
+from langchain.document_loaders import TextLoader  # Changed this line
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import Chroma  # Changed this line
+from langchain.embeddings import OpenAIEmbeddings  # Changed this line
 from langchain.chains import ConversationalRetrievalChain
 from langchain_openai import ChatOpenAI
 import os
